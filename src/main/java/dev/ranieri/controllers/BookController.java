@@ -1,5 +1,6 @@
 package dev.ranieri.controllers;
 
+import dev.ranieri.aspects.Secured;
 import dev.ranieri.entities.Book;
 import dev.ranieri.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,12 +33,14 @@ public class BookController {
 
     @PostMapping("/books")
     @ResponseBody
+    @Secured
     public Book createBook(@RequestBody Book book){ // will convert the JSON request body into an object
         return this.bookService.registerBook(book);
     }
 
     @PatchMapping("/books/{id}/checkout")
     @ResponseBody
+    @Secured
     public Book checkoutBook(@PathVariable int id){
         Book book = this.bookService.checkoutBook(id);
         return book;

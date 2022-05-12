@@ -20,7 +20,7 @@ public class BookRepoTests {
 
     @Test
     public void createBook(){
-        Book book = new Book(0,"Frankestein","Mary Shelley",0);
+        Book book = new Book(0,"Frankestein","Mary Shelley",0,1);
         bookRepo.save(book);
         System.out.println(book);
         Assertions.assertNotEquals(0,book.getId());

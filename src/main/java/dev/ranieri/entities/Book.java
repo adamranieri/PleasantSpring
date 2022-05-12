@@ -22,14 +22,19 @@ public class Book {
     @Column(name = "return_date")
     private long returnDate;
 
+    @Column(name = "p_id")
+    private int publisherId;
+
+
     public Book() {
     }
 
-    public Book(int id, String title, String author, long returnDate) {
+    public Book(int id, String title, String author, long returnDate, int publisherId) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.returnDate = returnDate;
+        this.publisherId = publisherId;
     }
 
     public int getId() {
@@ -64,6 +69,14 @@ public class Book {
         this.returnDate = returnDate;
     }
 
+    public int getPublisherId() {
+        return publisherId;
+    }
+
+    public void setPublisherId(int publisherId) {
+        this.publisherId = publisherId;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -71,6 +84,7 @@ public class Book {
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", returnDate=" + returnDate +
+                ", publisherId=" + publisherId +
                 '}';
     }
 }
